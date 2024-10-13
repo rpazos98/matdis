@@ -1,4 +1,4 @@
-from graph import Graph
+from implementations.graph import Graph
 
 
 class AdjacencyMatrixGraph(Graph):

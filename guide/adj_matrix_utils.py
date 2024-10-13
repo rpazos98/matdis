@@ -1,5 +1,6 @@
-from guide.adj_matrix import AdjacencyMatrixGraph
 import copy
+
+from implementations.adj_matrix import AdjacencyMatrixGraph
 
 
 def show_graph(graph: AdjacencyMatrixGraph):
@@ -73,6 +74,7 @@ def remove_lassos_and_isolated_vertices(graph: AdjacencyMatrixGraph):
     for remove_vertex in remove_vertices:
         g2.delete_vertex(remove_vertex)
     return g2
+
 
 if __name__ == "__main__":
     graph = AdjacencyMatrixGraph()
