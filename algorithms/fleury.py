@@ -1,7 +1,5 @@
 import timeit
 
-import matplotlib.pyplot as plt
-
 from implementations.utils import generate_connected_even_degree_graph
 
 
@@ -48,10 +46,9 @@ def fleury_algorithm(graph, start):
     current_vertex = start
 
     while graph.edge_count() > 0:
-        for neighbor in graph.get_adjacency_list(current_vertex):
-            if len(graph.get_adjacency_list(current_vertex)) == 1 or not is_bridge(
-                    graph, current_vertex, neighbor
-            ):
+        neighbors = graph.get_adjacency_list(current_vertex)
+        for neighbor in neighbors:
+            if len(neighbors) == 1 or not is_bridge(graph, current_vertex, neighbor):
                 path.append(neighbor)
                 graph.delete_edge(current_vertex, neighbor)
                 current_vertex = neighbor
@@ -69,6 +66,7 @@ def fleury_algorithm(graph, start):
 # g.add_edge(1, 2)
 # g.add_edge(2, 3)
 # g.add_edge(3, 0)
+# g.add_edge(0, 2)
 #
 # print(fleury_algorithm(g, 0))
 
@@ -78,7 +76,12 @@ def run_random_fleury_algorithm(num_vertices=10, num_edges=50):
     fleury_algorithm(g, 0)
 
 
-print(timeit.timeit(stmt=lambda: run_random_fleury_algorithm(10, 12), number=10))
-print(timeit.timeit(stmt=lambda: run_random_fleury_algorithm(50, 100), number=10))
-print(timeit.timeit(stmt=lambda: run_random_fleury_algorithm(1000, 1500), number=10))
-print(timeit.timeit(stmt=lambda: run_random_fleury_algorithm(500, int((500*499)/2)), number=1))
+# print(timeit.timeit(stmt=lambda: run_random_fleury_algorithm(10, 12), number=10))
+# print(timeit.timeit(stmt=lambda: run_random_fleury_algorithm(10, 20), number=10))
+print(timeit.timeit(stmt=lambda: run_random_fleury_algorithm(18, 40), number=10))
+print(timeit.timeit(stmt=lambda: run_random_fleury_algorithm(20, 40), number=10))
+# print(timeit.timeit(stmt=lambda: run_random_fleury_algorithm(50, 100), number=10))
+# print(timeit.timeit(stmt=lambda: run_random_fleury_algorithm(2000, 2002), number=10))
+# print(timeit.timeit(stmt=lambda: run_random_fleury_algorithm(2000, 3000), number=20))
+# print(timeit.timeit(stmt=lambda: run_random_fleury_algorithm(2500, 3000), number=20))
+# print(timeit.timeit(stmt=lambda: run_random_fleury_algorithm(500, int((500*499)/2)), number=1))

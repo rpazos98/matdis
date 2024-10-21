@@ -10,7 +10,7 @@ class AdjacencyListGraph:
     def delete_vertex(self, v):
         if v in self.adjacency_list:
             for adj_vertex in self.adjacency_list[v]:
-                self.adjacency_list[adj_vertex].remove(v)
+                self.adjacency_list[adj_vertex].remve(v)
                 self._edge_count -= 1
             del self.adjacency_list[v]
 
