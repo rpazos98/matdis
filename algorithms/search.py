@@ -31,7 +31,6 @@ def bfs(graph, start):
                 queue.append(neighbor)
 
 
-# Ejemplo de uso:
 g = AdjacencyListGraph()
 g.add_vertex('A')
 g.add_vertex('B')

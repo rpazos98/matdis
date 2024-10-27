@@ -1,10 +1,10 @@
 from implementations.graph import Graph
+from implementations.weighted_graph import WeightedGraph
 
 
-class WeightedAdjacencyMatrixGraph(Graph):
+class WeightedAdjacencyMatrixGraph(WeightedGraph):
     def __init__(self, directed=False):
         self.vertex_list = []
-        # Inicializa la matriz de adyacencia con None para indicar la ausencia de aristas
         self.adjacency_matrix = []
         self._edge_count = 0
         self.directed = directed

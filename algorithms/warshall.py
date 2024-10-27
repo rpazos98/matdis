@@ -2,17 +2,14 @@ from implementations.adj_matrix import AdjacencyMatrixGraph
 
 
 def warshall(graph):
-    # Inicializa la matriz de cierre transitivo
     n = graph.order()
     transitive_closure = [[False] * n for _ in range(n)]
 
-    # Rellena la matriz de cierre transitivo con las aristas existentes
     for i in range(n):
         for j in range(n):
             if graph.exists_edge(graph.vertex_list[i], graph.vertex_list[j]):
                 transitive_closure[i][j] = True
 
-    # Aplica el algoritmo de Warshall
     for k in range(n):
         for i in range(n):
             for j in range(n):
@@ -22,7 +19,6 @@ def warshall(graph):
     return transitive_closure
 
 
-# Ejemplo de uso:
 if __name__ == "__main__":
     g = AdjacencyMatrixGraph(directed=True)
     g.add_vertex("A")
@@ -33,18 +29,15 @@ if __name__ == "__main__":
 
     closure = warshall(g)
 
-    # Imprimir la matriz de cierre transitivo
     print("Transitive Closure:")
     for row in closure:
         print(row)
 
     g = AdjacencyMatrixGraph(directed=True)
 
-    # Agregar vértices
     for vertex in ['A', 'B', 'C', 'D', 'E']:
         g.add_vertex(vertex)
 
-    # Agregar aristas
     g.add_edge('A', 'B')
     g.add_edge('A', 'C')
     g.add_edge('B', 'D')
@@ -53,7 +46,6 @@ if __name__ == "__main__":
 
     closure = warshall(g)
 
-    # Imprimir la matriz de cierre transitivo
     print("Transitive Closure:")
     for row in closure:
         print(row)
